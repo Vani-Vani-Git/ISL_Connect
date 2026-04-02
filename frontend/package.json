@@ -1,0 +1,22 @@
+{
+  "name": "isl-translator",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.0.2",
+    "@mediapipe/holistic": "^0.5.1675471629",
+    "@mediapipe/camera_utils": "^0.3.1675466862"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.4",
+    "vite": "^5.4.21"
+  }
+}
+
