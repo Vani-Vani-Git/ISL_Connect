@@ -1,6 +1,4 @@
 import React, { useEffect, useRef } from "react";
-import { Holistic } from "@mediapipe/holistic";
-import { Camera } from "@mediapipe/camera_utils";
 
 const SEQ_LEN = 60;              // MUST match backend expectation
 const FEATURES_PER_FRAME = 258; // MUST match model input
@@ -83,7 +81,7 @@ export default function WebcamFeed({ running, onPrediction }) {
   useEffect(() => {
     if (!running || !videoRef.current) return;
 
-  const holistic = new Holistic({
+  const holistic = new window.Holistic({
   locateFile: (file) => {
     return `https://cdn.jsdelivr.net/npm/@mediapipe/holistic/${file}`;
   },
@@ -100,7 +98,7 @@ export default function WebcamFeed({ running, onPrediction }) {
     holistic.onResults(handleResults);
     holisticRef.current = holistic;
 
-    const camera = new Camera(videoRef.current, {
+    const camera = new window.Camera(videoRef.current, {
       onFrame: async () => {
         if (holisticRef.current) {
           await holisticRef.current.send({ image: videoRef.current });
