@@ -83,10 +83,11 @@ export default function WebcamFeed({ running, onPrediction }) {
   useEffect(() => {
     if (!running || !videoRef.current) return;
 
-    const holistic = new Holistic({
-      locateFile: (file) =>
-        `https://cdn.jsdelivr.net/npm/@mediapipe/holistic@0.5.1675471629/${file}`,
-    });
+  const holistic = new Holistic({
+  locateFile: (file) => {
+    return `https://cdn.jsdelivr.net/npm/@mediapipe/holistic/${file}`;
+  },
+});
 
     holistic.setOptions({
       modelComplexity: 1,
