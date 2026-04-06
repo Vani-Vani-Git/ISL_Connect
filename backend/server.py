@@ -39,7 +39,7 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 file_path = os.path.join(BASE_DIR, "label2idx.json")
 
 with open(file_path, "r") as f:
-    data = f.read()
+    data = json.load(f)
 
 idx2label = {v: k for k, v in data.items()}
 
