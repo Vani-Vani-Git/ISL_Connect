@@ -9,6 +9,7 @@ from models import User
 from auth import hash_password, verify_password, create_access_token
 from schemas import SignupRequest, LoginRequest
 from database import get_db
+import os 
 
 from model import load_model, predict
 User.metadata.create_all(bind=engine)
@@ -34,14 +35,15 @@ model = load_model()
 # -----------------------
 # Load label mapping
 # -----------------------
-with open("C:/Users/VANITHA/Desktop/ISLConnect/label2idx.json", "r") as f:
-    label2idx = json.load(f)
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+file_path = os.path.join(BASE_DIR, "label2idx.json")
 
-idx2label = {v: k for k, v in label2idx.items()}
+with open(file_path, "r") as f:
+    data = f.read()
 
-# -----------------------
-# Request schema
-# -----------------------
+idx2label = {v: k for k, v in data.items()}
+
+
 class PredictRequest(BaseModel):
     keypoints: list  # expected shape: [60, 258]
 
