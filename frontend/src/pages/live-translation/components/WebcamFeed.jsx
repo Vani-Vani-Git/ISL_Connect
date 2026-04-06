@@ -38,7 +38,7 @@ export default function WebcamFeed({ running, onPrediction }) {
     sendingRef.current = true;
 
     try {
-      const res = await fetch("https://isl-connect.onrender.com/predict", {
+      const res = await fetch("https://isl-connect-backend-j1b4.onrender.com/predict", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ keypoints: frameBufferRef.current }),
