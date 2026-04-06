@@ -3,3 +3,8 @@ uvicorn
 torch
 numpy
 pydantic
+sqlalchemy
+python-jose
+passlib[bcrypt]
+pydantic[email]
+python-multipart
